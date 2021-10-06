@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1em;
+    font-family: arial;
+}
+
+
+/*contenedor*/
+
+#contenedor {
+    margin: 0 auto;
+    width: 800px;
+    border: 5px groove #993300;
+}
+
+
+/*cabecera*/
+
+#cabecera {
+    background-color: #eeff45;
+    ;
+}
+
+#cabecera h1,
+h2 {
+    font-style: italic;
+    font-family: verdana;
+    padding: 0.5em 0;
+}
+
+#cabecera h1 {
+    font-size: 1.5em;
+}
+
+#cabecera h2 {
+    font-size: 1em;
+}
+
+#cabecera img {
+    width: 7%;
+}
+
+
+/*menu*/
+
+#menu {
+    width: 120px;
+    margin: 10px;
+    padding: 8px;
+    border: 2px solid #663333;
+    background-color: #ece5b6;
+    float: left
+}
+
+#menu h3 {
+    padding: 0.2em 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+#menu li {
+    list-style-type: none;
+    padding: 0.2em 0;
+}
+
+#menu a {
+    font-family: "times new roman";
+    font-size: 0.9em;
+    font-style: italic;
+    text-decoration: none;
+    display: block;
+}
+
+#menu a:link,
+visited {
+    color: #336600;
+}
+
+#menu a:hover,
+active {
+    color: #990066;
+    background-color: #e8f322;
+}
+
+
+/*principal*/
+
+#principal {
+    background-color: #99ffcc;
+    width: 640px;
+    float: left
+}
+
+
+/*contenido*/
+
+#contenido {
+    width: 440px;
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 10px;
+    float: left
+}
+
+#contenido h1 {
+    font-size: 1.1em;
+    padding: 0.3em 0;
+}
+
+#contenido h5 {
+    font-size: 0.8em;
+    font-style: italic;
+    text-align: left;
+    padding: 0.2em 0
+}
+
+#contenido p {
+    font-size: 0.8em;
+    text-align: justify;
+    padding: 0.2em 0
+}
+
+#contenido img {
+    width: 35%;
+}
+
+
+/*lateral*/
+
+#lateral {
+    width: 130px;
+    background-color: #660099;
+    margin: 10px 10px 10px 0px;
+    padding: 5px;
+    border: 5px double #ffcc33;
+    float: left;
+}
+
+#lateral h1 {
+    font-size: 1.1em;
+    color: #eeff45;
+}
+
+#lateral h2 {
+    font-size: 0.7em;
+    color: #ccffcc;
+}
+
+#lateral p {
+    text-align: left;
+    padding: 0.2em 0;
+}
+
+#lateral a:link,
+visited {
+    color: #ff33ff;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+#lateral a:hover,
+active {
+    color: #cc00ff;
+    font-size: 0.8em;
+    text-decoration: none;
+}
+
+#lateral img {
+    width: 80%;
+}
+
+
+/*pie*/
+
+#pie {
+    background-color: #ccffff;
+    clear: both;
+}
+
+#pie p {
+    text-align: center;
+    padding: 0.3em 0;
+    font-weight: bold;
+}
+
+#pie a:link,
+visited {
+    color: #663333;
+    text-decoration: none;
+}
+
+#pie a:hover,
+active {
+    color: #993300;
+    text-decoration: none;
+}
