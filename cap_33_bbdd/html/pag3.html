@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Consultas SQL</h1>
+    <ul>
+        <li>Crear Tabla</li>
+        <li>CREATE TABLE DATOSPERSONALES( NIF VARCHAR(10), nombre VARCHAR(15), apellido VARCHAR(20), edad INT(3) );</li>
+    </ul>
+    <ul>
+        <li>Insertar datos en la tabla</li>
+        <li>INSERT INTO `datospersonales`(`NIF`, `nombre`, `apellido`, `edad`) VALUES ("14952694","Fabian","Nogueroles",58)</li>
+    </ul>
+    <ul>
+        <li>Consulta a una BBDD</li>
+        <li>SELECT `NIF`, `nombre`, `apellido`, `edad` FROM `datospersonales`</li>
+        <li>o SELECT * FROM datospersonales</li>
+        <li>Me lista todos los registros</li>
+        <li>SELECT nombre,apellido FROM `datospersonales`</li>
+        <li>Me lista solo los campos nombre y apellido</li>
+    </ul>
+    <ul>
+        <li>Coneccion a una bbdd desde la web, necesitamos 4 datos</li>
+        <ul>
+            <li>Direccion: localhost</li>
+            <li>Nombre: pruebas</li>
+            <li>Usuario: root</li>
+            <li>Contraseña: ""</li>
+        </ul>
+        <br>
+        <a href="primer_conex.php">Coneccion</a>
+    </ul>
+
+
+
+
+
+
+</body>
+
+</html>
