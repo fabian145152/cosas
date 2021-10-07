@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Clientes</title>
+  <title>Pagina_1</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link href="../css/main.css" rel="stylesheet">
@@ -12,15 +12,19 @@
   <script src="../js/bootstrap.min.js"></script>
   <script src="../js/bootbox.min.js"></script>
 
+
 </head>
 
 <body>
   <?php
 
+
   include("coneccion.php");
+
 
   $tamagno_pagina = 8;  //cantidad de registros por pagina
 
+ 
 
 
   //--------------Sigue aca desde abajo de todo--------------
@@ -43,7 +47,7 @@
   //guardo en la variable el numero 6 para que lo sustituya en el limit
   //limit 6, 3 
 
-  $sql_total = "SELECT * FROM clientes";
+  $sql_total = "SELECT * FROM stock_productos";
 
   /*
 Para paginar agrego LIMIT, 2 parametros primer registro y cantidad de registros.
@@ -54,6 +58,9 @@ Creo variable $tamagno_pagina
 
 */
 
+
+
+
   $resultado = $base->prepare($sql_total);
   $resultado->execute(array());
   $num_filas = $resultado->rowCount();    //cuenta la cantidad de filas
@@ -63,28 +70,31 @@ Creo variable $tamagno_pagina
   //--------------------Fin Paginacion-----------------
 
 
-  $registros = $base->query("SELECT * FROM clientes LIMIT $empezar_desde,$tamagno_pagina")->fetchAll(PDO::FETCH_OBJ);
+  $registros = $base->query("SELECT * FROM stock_productos LIMIT $empezar_desde,$tamagno_pagina")->fetchAll(PDO::FETCH_OBJ);
 
   if (isset($_POST["cr"])) {
+    $codigo = $_POST["codigo"];
+    $seccion = $_POST["seccion"];
     $nombre = $_POST["nombre"];
-    $direccion = $_POST["direccion"];
-    $telef = $_POST["telef"];
-    $celu = $_POST["celu"];
-    $barrio = $_POST["barrio"];
-    $cp = $_POST["cp"];
-    $correo = $_POST["correo"];
+    $proveedor = $_POST["proveedor"];
+    $costo = $_POST["costo"];
+    $precio_venta = $_POST["precio_venta"];
+    $stock = $_POST["stock"];
+    $obs = $_POST["obs"];
 
-    $sql = "INSERT INTO clientes (nombre, direccion, telef, celu, barrio, cp, correo) 
-    VALUES (:nombre, :direccion, :telef, :celu, :barrio, :cp, :correo)";
+
+    $sql = "INSERT INTO stock_productos (codigo, seccion, nombre, proveedor, costo, precio_venta, stock, obs) 
+    VALUES (:codigo, :seccion, :nombre, :proveedor, :costo, :precio_venta, :stock, :obs)";
     $resultado = $base->prepare($sql);
     $resultado->execute(array(
+      ":codigo" => $codigo,
+      ":seccion" => $seccion,
       ":nombre" => $nombre,
-      ":direccion" => $direccion,
-      ":telef" => $telef,
-      ":celu" => $celu,
-      ":barrio" => $barrio,
-      ":cp" => $cp,
-      ":correo" => $correo
+      ":proveedor" => $proveedor,
+      ":costo" => $costo,
+      ":precio_venta" => $precio_venta,
+      ":stock" => $stock,
+      ":obs" => $obs
     ));
     header("location:index.php");
   }
@@ -93,20 +103,21 @@ Creo variable $tamagno_pagina
   ?>
 
 
-  <h1>CLIENTES<span class="subtitulo"> Listado</span></h1>
+  <h1>STOCK DE PRODUCTOS<span class="subtitulo"> Listado</span></h1>
   <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <a href="../welcome.php">Salir</a>
     <div class="container-fluid">
       <table class="table table-striped table-hover">
         <tr>
           <td class="primera_fila">Id</td>
+          <td class="primera_fila">Codigo</td>
+          <td class="primera_fila">Seccion</td>
           <td class="primera_fila">Nombre</td>
-          <td class="primera_fila">Direccion</td>
-          <td class="primera_fila">Telefono</td>
-          <td class="primera_fila">Celu</td>
-          <td class="primera_fila">Barrio</td>
-          <td class="primera_fila">CP</td>
-          <td class="primera_fila">Correo</td>
+          <td class="primera_fila">Proveedor</td>
+          <td class="primera_fila">Costo</td>
+          <td class="primera_fila">Precio de Venta</td>
+          <td class="primera_fila">Stock</td>
+          <td class="primera_fila">obs</td>
           <td class="sin">&nbsp;</td>
           <td class="sin">&nbsp;</td>
           <td class="sin">&nbsp;</td>
@@ -114,7 +125,7 @@ Creo variable $tamagno_pagina
           <td class="sin">&nbsp;</td>
           <td class="sin">&nbsp;</td>
           <td class="sin">&nbsp;</td>
-
+          <td class="sin">&nbsp;</td>
 
         </tr>
         <!-- Esta parte es para que las lineas se repitan -->
@@ -131,25 +142,27 @@ Creo variable $tamagno_pagina
 
           <tr>
             <td><?php echo $persona->id ?></td>
+            <td><?php echo $persona->codigo ?></td>
+            <td><?php echo $persona->seccion ?></td>
             <td><?php echo $persona->nombre ?></td>
-            <td><?php echo $persona->direccion ?></td>
-            <td><?php echo $persona->telef ?></td>
-            <td><?php echo $persona->celu ?></td>
-            <td><?php echo $persona->barrio ?></td>
-            <td><?php echo $persona->cp ?></td>
-            <td><?php echo $persona->correo ?></td>
+            <td><?php echo $persona->proveedor ?></td>
+            <td><?php echo $persona->costo ?></td>
+            <td><?php echo $persona->precio_venta ?></td>
+            <td><?php echo $persona->stock ?></td>
+            <td><?php echo $persona->obs ?></td>
 
 
             <td class="bot"><a href="borrar.php?id=<?php echo $persona->id ?>"><input type='button' name='del' id='del' value='Borrar'></a></td>
 
             <td class='bot'><a href="editar.php?id=<?php echo $persona->id ?> 
-                                                           & nombre=<?php echo $persona->nombre ?> 
-                                                           & direccion=<?php echo $persona->direccion ?> 
-                                                           & telef=<?php echo $persona->telef ?>
-                                                           & celu=<?php echo $persona->celu ?>
-                                                           & barrio=<?php echo $persona->barrio ?>
-                                                           & cp=<?php echo $persona->cp ?>
-                                                           & correo=<?php echo $persona->correo ?>">
+                                                           & codigo=<?php echo $persona->codigo ?> 
+                                                           & seccion=<?php echo $persona->seccion ?> 
+                                                           & nombre=<?php echo $persona->nombre ?>
+                                                           & proveedor=<?php echo $persona->proveedor ?>
+                                                           & costo=<?php echo $persona->costo ?>
+                                                           & precio_venta=<?php echo $persona->precio_venta ?>
+                                                           & stock=<?php echo $persona->stock ?>
+                                                           & obs=<?php echo $persona->obs ?>">
                 <input type='button' name='up' id='up' value='Actualizar'></a></td>
           </tr>
         <?php
@@ -161,16 +174,19 @@ Creo variable $tamagno_pagina
         ?>
         <tr>
           <td></td>
+          <td><input type='text' name='codigo' size='10' class='centrado'></td>
+          <td><input type='text' name='seccion' size='10' class='centrado'></td>
           <td><input type='text' name='nombre' size='10' class='centrado'></td>
-          <td><input type='text' name='direccion' size='10' class='centrado'></td>
-          <td><input type='text' name='telef' size='10' class='centrado'></td>
-          <td><input type='text' name='celu' size='10' class='centrado'></td>
-          <td><input type='text' name='barrio' size='10' class='centrado'></td>
-          <td><input type='text' name='cp' size='10' class='centrado'></td>
-          <td><input type='text' name='correo' size='10' class='centrado'></td>
+          <td><input type='text' name='proveedor' size='10' class='centrado'></td>
+          <td><input type='text' name='costo' size='10' class='centrado'></td>
+          <td><input type='text' name='precio_venta' size='10' class='centrado'></td>
+          <td><input type='text' name='stock' size='10' class='centrado'></td>
+          <td><input type='text' name='obs' size='10' class='centrado'></td>
           <td class='bot'><input type='submit' name='cr' id='cr' value='Agregar'></td>
         </tr>
-        <td></td>
+        <td>
+
+        </td>
         <td>
           <?php
           // --------------------------------------------------------
@@ -183,12 +199,13 @@ Creo variable $tamagno_pagina
           echo  "<br>" . $num_filas . " Registros";
           ?>
 
-        </td>
+  </form>
+  </td>
 
-      </table>
-    </div>
+  </table>
+  </div>
 
-    <p>&nbsp;</p>
+  <p>&nbsp;</p>
 </body>
 
 </html>

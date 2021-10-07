@@ -35,7 +35,7 @@
 
                         <li><a href="crud_proveedores/index.php">Proveedores</a></li>
                         <li><a href="crud_clientes/index.php">Clientes</a></li>
-                        <li><a href="html/premios.html">Compras</a></li>
+                        <li><a href="crud_productos/index.php">Productos</a></li>
                         <li><a href="html/legado.html">Ventas</a></li>
                         <li><a href="../index.html">Salir</a></li>
                     </ul>

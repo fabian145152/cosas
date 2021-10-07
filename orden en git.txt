@@ -1,0 +1,46 @@
+https://bluuweb.github.io/tutorial-github/guia/fundamentos.html
+
+en terminal del vsc
+git config --global user.name "Fabian"
+git config --global user.email "laboratorio.fabian@gmail.com"
+
+
+logueo de github
+
+
+user  laboratorio.fabian@gmail.com
+pass  aa00145152
+
+voy a la solapa code y copio la url
+voy al terminal de vsc y git remote add origin y pego http.....
+ git push origin master (puede pedir usuario y pass sube todo a gitub)
+
+ git version 
+ git init  ; solo una vez por carpeta que trabajemos
+ git status -s    ; muestra lo modificado
+ git add .     ;seguimineto a todo en area temporal
+ git commit -m "mensaje"     ;guarda en el repo local
+
+sigo programando
+
+  git commit -m "mensaje"    ; vuelve a guardar en el repo local
+  git add .
+  git --oneline     ; lista todos los commint
+
+ git reset --hard numero    ; vuelve a ese estado del prog
+			    ; con el listado de numeros 
+			    ;puedo viajar dentro del historial
+ 
+hago una modificacion
+ git status -s    ;me la lista
+ git add .  
+ git commit -m ""    ; agrego mensaje
+ git push	     ;subo todo a mi repo en git
+ git pull 	     ;Traigo todo desde github a mi vsc
+
+ Tags para crear versiones.
+ git tag version1.0 -m "version 1.0"	;lo crea en el repo local
+ git push --tags			;lo siubo a github
+
+	voy a tags en github, refresco y puedo bajar la version en zip.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
