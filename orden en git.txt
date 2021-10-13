@@ -30,6 +30,11 @@ sigo programando
  git reset --hard numero    ; vuelve a ese estado del prog
 			    ; con el listado de numeros 
 			    ;puedo viajar dentro del historial
+
+
+************************************************************************
+******************* Esta parte para actualizar *************************
+************************************************************************
  
 hago una modificacion
  git status -s    ;me la lista
@@ -37,6 +42,8 @@ hago una modificacion
  git commit -m ""    ; agrego mensaje
  git push	     ;subo todo a mi repo en git
  git pull 	     ;Traigo todo desde github a mi vsc
+
+************************************************************************
 
  Tags para crear versiones.
  git tag version1.0 -m "version 1.0"	;lo crea en el repo local
